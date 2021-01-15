@@ -1,9 +1,11 @@
 from funcoes.dados.dados import *
+from funcoes.logica import *
 
 
 def inicio():
     """
-    -> este é o ínicio
+    -> este é o ínicio. que está dentro de um loop que acabará caso o valor de retorno da função 'menu()' seja
+    igual a cinco
     :return:
     """
     while True:
@@ -16,6 +18,8 @@ def inicio():
                 criajogadores()
             if r == 2:
                 lerarquivo(arq)
+            if r == 3:
+                criajogadores(fast=True)
             comecarpartida()
         elif escolha == 2:
             menu('RECORDES', escolha)
@@ -48,9 +52,9 @@ def menu(msg_titulo, op=0):
     :param op: é o valor que instruir a devida chamada :proximomenu() que corpo o menu deve tomar.
     :return: retorna um valor inteiro.
     """
-    opcoes = proximomenu(op)
-    titulo(msg_titulo)
-    escolhido = opcoesdomenu(opcoes)
+    opcoes = proximomenu(op)  # corpo de opções do menu a qual está contida numa lista.
+    titulo(msg_titulo)  # cabeçalho do menu.
+    escolhido = opcoesdomenu(opcoes)  # cria através de um loop o corpo de opções.
     return escolhido
 
 
@@ -65,67 +69,39 @@ def opcoesdomenu(lista_op):
     for item in lista_op:
         print(f'{cont} - {item}')
         cont += 1
-    escolha = validadorint('Opção: ', cont-1)
+    escolha = validadorint('Opção: ', cont-1) # validação de dados
     return escolha
 
 
-def validadorint(msg, cont):
-    while True:
-        try:
-            valor = int(input(msg))
-        except:
-            print('Digite um número inteiro!')
-        else:
-            if valor > cont or valor < 1:
-                print(f'Digite um valor entre 1 e {cont}!')
-            else:
-                return valor
-
-
-def proximomenu(entrada):
+def criajogadores(fast=False):
     """
-    -> função que manda as informações necessária para montar o corpo do menu que o usúario irá interagir com
-    o programa.
-    :param entrada:
+    -> vai criar um txt para guardar os dados dos jogadores.
+    :param fast:caso acionando com True essa parametro determina que nenhum nome em espéfico
+    será guardado.
     :return:
     """
-    if entrada == 0:
-        return ['Jogar', 'Recordes', 'Instruções', 'Opções', 'Sair']
-    elif entrada == 1:
-        return ['Criar Jogadores', 'Carregar Jogadores', 'Partida Rápida', 'Voltar']
-    elif entrada == 2:
-        return ['Voltar']
-    elif entrada == 3:
-        return ['Voltar']
-    elif entrada == 4:
-        return ['Voltar']
-    elif entrada == 5:
-        return ['SIM', 'NÃO']
-
-
-def criajogadores():
     arq = inicialista()
-    nome = validadornome('Seu nome: ')
-    cadastrarjogadores(arq, nome)
+    if not fast:
+        nome = validadornome('Seu nome: ')
+        cadastrarjogadores(arq, nome)
+    else:
+        cadastrarjogadores(arq)
 
 
-def inicialista():
-    arq = 'lista-jogadores.txt'
+def inicialista(procedimento=0):
+    if procedimento == 0:
+        arq = 'lista-jogadores.txt'
+    elif procedimento == 1:
+        arq = 'perguntas-faceis.txt'
     retorno = verificalista(arq)
     if not retorno:
         crialista(arq)
     return arq
 
 
-def validadornome(msg):
-    while True:
-        try:
-            nome = str(input(msg)).strip()
-        except:
-            print('Erro! não deixe de informar o nome!')
-        else:
-            return nome
-
-
 def comecarpartida():
     menu('Quer começar? ', 5)
+    arq = inicialista(1)
+    lista = carregarperguntas(arq)
+    escolhendoperguntas(lista)
+    print('Parei aqui')

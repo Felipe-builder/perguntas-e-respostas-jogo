@@ -1,3 +1,4 @@
+# Dados dos Jogadores
 def verificalista(arquivo):
     try:
         a = open(arquivo, 'rt')
@@ -40,3 +41,18 @@ def lerarquivo(arquivo):
         dado[1] = dado[1].replace('\n', '')
         print(f'{dado[0]:.<30}{dado[1]} pontos')
     a.close()
+
+
+# dados das perguntas!
+def carregarperguntas(arquivo):
+    perguntas = [[], []]
+    a = open(arquivo, 'r')
+    for linha in a:
+        dado = linha.split(';')
+        dado[1] = dado[1].replace('\n', '')
+        alternativas = dado[1].split(',')
+        perguntas[0].append(f'{dado[0]}')
+        perguntas[1].append(f'{alternativas}')
+    a.close()
+    print(perguntas)
+    return perguntas
