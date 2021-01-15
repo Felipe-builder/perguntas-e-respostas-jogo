@@ -1,5 +1,10 @@
 # Dados dos Jogadores
 def verificalista(arquivo):
+    """
+    -> funcao que vai verificar se tem um arquivo .txt caso não ele mesmo informa no valor de retorno False,
+    :param arquivo:
+    :return:
+    """
     try:
         a = open(arquivo, 'rt')
         a.close()

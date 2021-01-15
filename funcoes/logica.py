@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, shuffle
 
 
 def proximomenu(entrada):
@@ -22,14 +22,20 @@ def proximomenu(entrada):
         return ['SIM', 'NÃO']
 
 
-def validadornome(msg):
+def validadornome(msg, alternativa=False):
     while True:
         try:
             nome = str(input(msg)).strip()
         except:
-            print('Erro! não deixe de informar o nome!')
+            print('Erro! não deixe de informar o dado!')
         else:
-            return nome
+            if alternativa:
+                if nome.lower().isalpha() and nome[0] in 'abcde':
+                    return nome
+                else:
+                    print('Digite um valor de a) a e)')
+            else:
+                return nome
 
 
 def validadorint(msg, cont):
@@ -52,14 +58,34 @@ def validadorint(msg, cont):
 
 
 def escolhendoperguntas(lista):
+    motraperguntas(lista)
+
+
+def motraperguntas(lista):
     cont = 1
     op = ['a)', 'b)', 'c)', 'd)', 'e)']
     for p in range(0, 8):
-        sorteio = randint(0, 24)
-        print(f'{cont} - {lista[0][sorteio]}')
-        print(f'{lista[1][sorteio]}')
-        embaralhado = lista[1][sorteio]
-        for c, alt in enumerate(embaralhado):
-            sortalt = randint(0, len(alt)-1)
-            print(f'\t{op[c]}{alt}')
+        repeticaomostraperguntas(lista, cont, op)
         cont += 1
+
+
+def repeticaomostraperguntas(lista, cont, op):
+    sorteio = randint(0, 24)
+    print(f'{cont} - {lista[0][sorteio]}')
+    alternativa = lista[1][sorteio][:]
+    alternativa = alternativa.split(',')
+    certo = alternativa[0][:]
+    shuffle(alternativa)
+    for x, a in enumerate(alternativa):
+        print(f'\t{op[x]} - {a}')
+    opc_escolhida = validadornome('Qual é a certa?', alternativa=True)
+    verificandoresposta(opc_escolhida, alternativa, certo)
+
+
+def verificandoresposta(opc_escolhida, alternativa, cert):
+    al = ['a', 'b', 'c', 'd', 'e']
+    valor_opc = al.index(opc_escolhida)
+    if alternativa[valor_opc] == cert:
+        print('certo')
+    else:
+        print('errado')

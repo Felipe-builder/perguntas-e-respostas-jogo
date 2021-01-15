@@ -89,6 +89,11 @@ def criajogadores(fast=False):
 
 
 def inicialista(procedimento=0):
+    """
+    -> função necessária para dá inicio ao arquivo txt que irá guardar informações dos jogadores e das perguntas
+    :param procedimento: se o procedimento for 0 carrega o .txt dos jogadores, senão carrega das perguntas.
+    :return:
+    """
     if procedimento == 0:
         arq = 'lista-jogadores.txt'
     elif procedimento == 1:
