@@ -1,25 +1,25 @@
-Uma raça de cachorro com a Letra L? ; Resposta: Labrador, Pitibul, Leviata, Pincher, Dog Alemao
-Um programa de TV com a letra B? ; Resposta: Breaking Bad, Xuxa, Barao Vermelho, Panico na TV, BRICS
-O que tem na sala de aula com T? ; Resposta: Tomada, Tabacaria, Tapioca, Carro, Jumento
-Quantos estados tem o Brasil? ; Resposta: 26 estados, 29 estados, 54 estados, 27 estados mais o DF
-Quais as duas maiores torcidas de futebol do Brasil? ; Resposta: Flamengo, Tabajara, Chelsea, Barcelona, Boca Juniors
-A Antartica fica no Polo Norte ou Polo Sul? ; Resposta: Polo Sul, Lajes, Sitio da Rapadura, Polo Norte, Dentro mar
-Qual o nome do acento usado em 'nao' de negacao? ; Resposta: til, circunflexo, agudo, substantivo, verbo.
-Quem pintou a Mona Lisa? Resposta: ; Leonardo da Vinci, Pablo Picasso, Micheal Jackson, Madonna, Saraiva.
-O que a vaca bebe? ; Resposta: água, cachaca, veneno, refrigerante, soda.
-Quantas horas têm um dia e uma noite? ; Resposta: 24, 26, 23:30, 45, 12.
-O que significa a hashtag #TBT? ; Resposta: Throw back Thursday, The Best Time, Tia bateu teste, Ta que ta, Sei la.
-Onde fica Atenas? ; Resposta: na Grecia, America, Jordania, China, Brasil.
-O tomate é um legume ou uma fruta? ; Resposta: uma fruta, legume, animal vegetal, katchupe, folha de mato.
-Quantos meses, normalmente, dura uma gestação humana? ; Resposta: 9 meses, 12 semanas, 45 meses, 45 semanas, 7 meses.
-Qual o idioma falado na Australia? ; Resposta: ingles, espanhol, frances, latim, portugues.
-Cite um prato típico da Itália. ; Resposta: macarrão, acaraje, buchada, strogonoff, feijao.
-O que significa ITI Malia? ; Resposta: ixi Maria, nada, nadica, nem queira saber, aiai.
-Quem nasce na cidade de São Paulo é o que? ; Resposta: paulistano, pernambucano, judaico, egipciense, latino.
-Em qual mês se comemora o Dia das Mães? ; Resposta: maio, julho, agosto, dezembro, fevereiro.
-Como se diz cachorro-quente em inglês? ; Resposta: hot-dog, hot-hot, dog-hot, dog-dog, very-hot.
-Quais as cores da bandeira do Brasil? ; Resposta: verde e amarelo e azul e branco.
-Por que nós falamos português no Brasil? ; Resposta: porque o Brasil foi colonizado por portugueses.
-Qual é o nome do canal do Silvio Santos? ; Resposta: SBT.
-Qual escola de samba é a mais conhecida pelas cores verde e rosa? ; Resposta: Estação Primeira de Mangueira.
-Qual foi a primeira capital do Brasil? ; Resposta: Salvador.
+Uma raça de cachorro com a Letra L? ; Labrador , Pitibul , Leviata , Pincher , Dog Alemao
+Um programa de TV com a letra B? ; Breaking Bad , Xuxa , Barao Vermelho , Panico na TV , BRICS
+O que tem na sala de aula com T? ; Tomada , Tabacaria , Tapioca , Carro , Jumento
+Quantos estados tem o Brasil? ; 26 estados , 29 estados , 54 estados , 27 estados mais o DF
+Quais as duas maiores torcidas de futebol do Brasil? ; Flamengo , Tabajara , Chelsea , Barcelona , Boca Juniors
+A Antartica fica no Polo Norte ou Polo Sul? ; Polo Sul , Lajes , Sitio da Rapadura , Polo Norte , Dentro mar
+Qual o nome do acento usado em 'nao' de negacao? ; til , circunflexo , agudo , substantivo , verbo
+Quem pintou a Mona Lisa? ; Leonardo da Vinci , Pablo Picasso , Micheal Jackson , Madonna , Saraiva
+O que a vaca bebe? ; agua , cachaca , veneno , refrigerante , soda
+Quantas horas tem um dia e uma noite? ; 24 , 26 , 23:30 , 45 , 12
+O que significa a hashtag #TBT? ; Throw back Thursday , The Best Time , Tia bateu teste , Ta que ta , Sei la
+Onde fica Atenas? ; na Grecia , America , Jordania , China , Brasil
+O tomate e um legume ou uma fruta? ; uma fruta , legume , animal vegetal , katchupe , folha de mato
+Quantos meses, normalmente, dura uma gestacao humana? ; 9 meses , 12 semanas , 45 meses , 45 semanas , 7 meses
+Qual o idioma falado na Australia? ; ingles , espanhol , frances , latim , portugues
+Cite um prato típico da Italia. ; macarrao , acaraje , buchada , strogonoff , feijao
+O que significa ITI Malia? ; ixi Maria , nada , nadica , nem queira saber , aiai
+Quem nasce na cidade de São Paulo e o que? ; paulistano , pernambucano , judaico , egipciense , latino
+Em qual mes se comemora o Dia das Maes? ; maio, julho , agosto , dezembro , fevereiro
+Como se diz cachorro-quente em ingles? ; hot-dog , hot-hot , dog-hot , dog-dog , very-hot
+Quais as cores da bandeira do Brasil? ; verde e amarelo e azul e branco
+Por que nós falamos português no Brasil? ; porque o Brasil foi colonizado por portugueses
+Qual é o nome do canal do Silvio Santos? ; SBT
+Qual escola de samba é a mais conhecida pelas cores verde e rosa? ; Estação Primeira de Mangueira
+Qual foi a primeira capital do Brasil? ; Salvador

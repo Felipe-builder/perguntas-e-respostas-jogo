@@ -1,3 +1,5 @@
+from funcoes.logica import *
+
 # Dados dos Jogadores
 def verificalista(arquivo):
     """
@@ -15,6 +17,12 @@ def verificalista(arquivo):
 
 
 def crialista(arquivo):
+    """
+    -> esta função criará uma lista caso a função anterior "verificalista()" retornar valor False, informando
+    por tanto que não há listas.
+    :param arquivo: é o nome do arquivo que será criado, ou é lista com nomes de jogadores ou as perguntas
+    :return:
+    """
     try:
         a = open(arquivo, 'wt+')
         a.close()
@@ -25,6 +33,13 @@ def crialista(arquivo):
 
 
 def cadastrarjogadores(arquivo, nome='<Desconhecido>', pontos=0):
+    """
+    -> esta função vai adicionar no .txt o nome e a pontuação do jogador.
+    :param arquivo: é o nome do .txt
+    :param nome: é o nome do jogador, caso esse parametro seja omitido será passado o nome <Desconhecido>
+    :param pontos: será sempre passado como zero, somente após pontuar no jogo que esse valor vai modificar
+    :return:
+    """
     try:
         a = open(arquivo, 'at')
     except:
@@ -39,13 +54,31 @@ def cadastrarjogadores(arquivo, nome='<Desconhecido>', pontos=0):
             a.close()
 
 
-def lerarquivo(arquivo):
+def lerarquivo(arquivo, show=False):
+    """
+    -> esta função tem por objetivo fazer uma apresentação dos dados do jogadores de forma mais apresentável e
+    criar uma lista com as informações que serão modificadas ao decorrer do jogo com a pontuação deste.
+    :param show: define se a função vai mostrar os jogadores ou não.
+    :param arquivo: é o nome do arquivo
+    :return: retorna uma lista com os dados de cada jogador inscrito no programa.
+    """
+    lista_jogadores = []
+    contador = 1
     a = open(arquivo, 'r')
     for linha in a:
         dado = linha.split(';')
         dado[1] = dado[1].replace('\n', '')
-        print(f'{dado[0]:.<30}{dado[1]} pontos')
+        if show:
+            print(f'{contador} - {dado[0]:.<30}{dado[1]} pontos')
+            contador += 1
+        lista_jogadores.append(dado)
     a.close()
+    return lista_jogadores
+
+
+def escolhendo_jogador(lista_jogadores):
+    valorjogador_escolhido = validadorint('Escolha um jogador: ', len(lista_jogadores))
+    return lista_jogadores[valorjogador_escolhido-1]
 
 
 # dados das perguntas!

@@ -16,10 +16,16 @@ def inicio():
             print(r)
             if r == 1:
                 criajogadores()
-            if r == 2:
-                lerarquivo(arq)
-            if r == 3:
+            elif r == 2:
+                lerarquivo(arq, show=True)
+            elif r == 3:
                 criajogadores(fast=True)
+            elif r == 4:
+                print('voltar!!')
+            lista_jogadores = lerarquivo(arq)
+            jogador_escolhido = escolhendo_jogador(lista_jogadores)
+            print(jogador_escolhido)
+            jogador_escolhido[1] = int(jogador_escolhido[1])
             comecarpartida()
         elif escolha == 2:
             menu('RECORDES', escolha)
@@ -108,5 +114,5 @@ def comecarpartida():
     menu('Quer começar? ', 5)
     arq = inicialista(1)
     lista = carregarperguntas(arq)
-    escolhendoperguntas(lista)
+    pontuacao = escolhendoperguntas(lista)
     print('Parei aqui')

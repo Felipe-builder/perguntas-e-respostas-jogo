@@ -1,4 +1,4 @@
-from random import randint, shuffle
+from random import shuffle, sample
 
 
 def proximomenu(entrada):
@@ -23,6 +23,13 @@ def proximomenu(entrada):
 
 
 def validadornome(msg, alternativa=False):
+    """
+    -> função que valida strings.
+    :param msg: é o conteúdo da pergunta feita ao usuário.
+    :param alternativa: se a alternativa=True, o validador vai funcionar como validação para alternativas de
+    'a' até 'e', se alternativa=False, então vai funcionar para validação de qualquer nome.
+    :return: vai retornar o valor de uma string.
+    """
     while True:
         try:
             nome = str(input(msg)).strip()
@@ -58,26 +65,27 @@ def validadorint(msg, cont):
 
 
 def escolhendoperguntas(lista):
-    motraperguntas(lista)
+    mostraperguntas(lista)
+    # return pontuacao
 
 
-def motraperguntas(lista):
+def mostraperguntas(lista):
     cont = 1
     op = ['a)', 'b)', 'c)', 'd)', 'e)']
+    sorteados = sistemaembaralhamento()
     for p in range(0, 8):
-        repeticaomostraperguntas(lista, cont, op)
+        repeticaomostraperguntas(lista, cont, op, sorteados)
         cont += 1
 
 
-def repeticaomostraperguntas(lista, cont, op):
-    sorteio = randint(0, 24)
-    print(f'{cont} - {lista[0][sorteio]}')
-    alternativa = lista[1][sorteio][:]
+def repeticaomostraperguntas(lista, cont, op, sorteados):
+    print(f'{cont} - {lista[0][sorteados[cont]]}')
+    alternativa = lista[1][sorteados[cont]][:]
     alternativa = alternativa.split(',')
     certo = alternativa[0][:]
     shuffle(alternativa)
     for x, a in enumerate(alternativa):
-        print(f'\t{op[x]} - {a}')
+        print(f'\t{op[x]} - {a[2:-2]}')
     opc_escolhida = validadornome('Qual é a certa?', alternativa=True)
     verificandoresposta(opc_escolhida, alternativa, certo)
 
@@ -89,3 +97,11 @@ def verificandoresposta(opc_escolhida, alternativa, cert):
         print('certo')
     else:
         print('errado')
+
+
+def sistemaembaralhamento():
+    numbers = []
+    for c in range(0, 25):
+        numbers.append(c)
+    esc = sample(numbers, 9)
+    return esc
