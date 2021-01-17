@@ -23,10 +23,11 @@ def inicio():
             elif r == 4:
                 print('voltar!!')
             lista_jogadores = lerarquivo(arq)
-            jogador_escolhido = escolhendo_jogador(lista_jogadores)
-            print(jogador_escolhido)
+            jogador_escolhido, indece = escolhendo_jogador(lista_jogadores)
+            print(jogador_escolhido, indece)
             jogador_escolhido[1] = int(jogador_escolhido[1])
-            comecarpartida()
+            pontos_carregados = jogador_escolhido[1]
+            comecarpartida(pontos_carregados, lista_jogadores, indece)
         elif escolha == 2:
             menu('RECORDES', escolha)
         elif escolha == 3:
@@ -110,9 +111,11 @@ def inicialista(procedimento=0):
     return arq
 
 
-def comecarpartida():
+def comecarpartida(pontos_carregados, lista_jogadores, indece):
     menu('Quer começar? ', 5)
     arq = inicialista(1)
     lista = carregarperguntas(arq)
-    pontuacao = escolhendoperguntas(lista)
+    pontos = escolhendoperguntas(lista)
+    pontos_carregados += pontos
+    atualiza_pontos(lista_jogadores, indece, pontos_carregados)
     print('Parei aqui')

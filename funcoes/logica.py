@@ -1,5 +1,7 @@
 from random import shuffle, sample
 
+pontuacao = 0
+
 
 def proximomenu(entrada):
     """
@@ -65,11 +67,23 @@ def validadorint(msg, cont):
 
 
 def escolhendoperguntas(lista):
+    """
+    -> funcão que inicia o questionário.
+    :param lista:
+    :return:
+    """
+    global pontuacao
+    pontuacao = 0
     mostraperguntas(lista)
-    # return pontuacao
+    return pontuacao
 
 
 def mostraperguntas(lista):
+    """
+    -> função que mostra o questionário.
+    :param lista:
+    :return:
+    """
     cont = 1
     op = ['a)', 'b)', 'c)', 'd)', 'e)']
     sorteados = sistemaembaralhamento()
@@ -79,6 +93,14 @@ def mostraperguntas(lista):
 
 
 def repeticaomostraperguntas(lista, cont, op, sorteados):
+    """
+    -> função que
+    :param lista:
+    :param cont:
+    :param op:
+    :param sorteados:
+    :return:
+    """
     print(f'{cont} - {lista[0][sorteados[cont]]}')
     alternativa = lista[1][sorteados[cont]][:]
     alternativa = alternativa.split(',')
@@ -92,8 +114,11 @@ def repeticaomostraperguntas(lista, cont, op, sorteados):
 
 def verificandoresposta(opc_escolhida, alternativa, cert):
     al = ['a', 'b', 'c', 'd', 'e']
+    ponts = 1
+    global pontuacao
     valor_opc = al.index(opc_escolhida)
     if alternativa[valor_opc] == cert:
+        pontuacao += ponts
         print('certo')
     else:
         print('errado')

@@ -78,7 +78,16 @@ def lerarquivo(arquivo, show=False):
 
 def escolhendo_jogador(lista_jogadores):
     valorjogador_escolhido = validadorint('Escolha um jogador: ', len(lista_jogadores))
-    return lista_jogadores[valorjogador_escolhido-1]
+    return lista_jogadores[valorjogador_escolhido-1], valorjogador_escolhido-1
+
+
+def atualiza_pontos(lista_jogadores, indece, pontos_carregados):
+    lista_jogadores[indece][1] = pontos_carregados
+    arq = 'lista-jogadores.txt'
+    a = open(arq, 'wt')
+    for linha in lista_jogadores:
+        a.write(f'{linha[0]};{linha[1]}\n')
+    a.close()
 
 
 # dados das perguntas!
@@ -92,5 +101,4 @@ def carregarperguntas(arquivo):
         perguntas[0].append(f'{dado[0]}')
         perguntas[1].append(f'{alternativas}')
     a.close()
-    print(perguntas)
     return perguntas
