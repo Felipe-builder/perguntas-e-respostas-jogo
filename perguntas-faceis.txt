@@ -1,25 +1,25 @@
-Uma raça de cachorro com a Letra L? ; Labrador , Pitibul , Leviata , Pincher , Dog Alemao
-Um programa de TV com a letra B? ; Breaking Bad , Xuxa , Barao Vermelho , Panico na TV , BRICS
-O que tem na sala de aula com T? ; Tomada , Tabacaria , Tapioca , Carro , Jumento
-Quantos estados tem o Brasil? ; 26 estados , 29 estados , 54 estados , 27 estados mais o DF
-Quais as duas maiores torcidas de futebol do Brasil? ; Flamengo , Tabajara , Chelsea , Barcelona , Boca Juniors
-A Antartica fica no Polo Norte ou Polo Sul? ; Polo Sul , Lajes , Sitio da Rapadura , Polo Norte , Dentro mar
-Qual o nome do acento usado em 'nao' de negacao? ; til , circunflexo , agudo , substantivo , verbo
-Quem pintou a Mona Lisa? ; Leonardo da Vinci , Pablo Picasso , Micheal Jackson , Madonna , Saraiva
-O que a vaca bebe? ; agua , cachaca , veneno , refrigerante , soda
-Quantas horas tem um dia e uma noite? ; 24 , 26 , 23:30 , 45 , 12
-O que significa a hashtag #TBT? ; Throw back Thursday , The Best Time , Tia bateu teste , Ta que ta , Sei la
-Onde fica Atenas? ; na Grecia , America , Jordania , China , Brasil
-O tomate e um legume ou uma fruta? ; uma fruta , legume , animal vegetal , katchupe , folha de mato
-Quantos meses, normalmente, dura uma gestacao humana? ; 9 meses , 12 semanas , 45 meses , 45 semanas , 7 meses
-Qual o idioma falado na Australia? ; ingles , espanhol , frances , latim , portugues
-Cite um prato típico da Italia. ; macarrao , acaraje , buchada , strogonoff , feijao
-O que significa ITI Malia? ; ixi Maria , nada , nadica , nem queira saber , aiai
-Quem nasce na cidade de São Paulo e o que? ; paulistano , pernambucano , judaico , egipciense , latino
-Em qual mes se comemora o Dia das Maes? ; maio, julho , agosto , dezembro , fevereiro
-Como se diz cachorro-quente em ingles? ; hot-dog , hot-hot , dog-hot , dog-dog , very-hot
-Quais as cores da bandeira do Brasil? ; verde e amarelo e azul e branco
-Por que nós falamos português no Brasil? ; porque o Brasil foi colonizado por portugueses
-Qual é o nome do canal do Silvio Santos? ; SBT
-Qual escola de samba é a mais conhecida pelas cores verde e rosa? ; Estação Primeira de Mangueira
-Qual foi a primeira capital do Brasil? ; Salvador
+Qual o menor país do mundo? ; Vaticano , Mônaco , Luxemburgo , Andorra , Malta.
+Quem foi o presidente do Brasil que era conhecido como Jango? ; João Goulart , Jânio Quadros , Getúlio Vargas , João Figueiredo , Fernando Collor.
+Qual o significado da palavra inglesa legend em português? ; lenda , conto , legenda , legendário , agenda.
+Qual o planeta conhecido por ter um anel em volta? ; Saturno , Marte , Plutão , Netuno , Júpiter.
+Qual o coletivo do cães? ; matilha , manada , bando , rebanho , cardume.
+Como é chamado o naipe do baralho que representa um coração? ; Copas , Ouros , Paus , Espadas.
+Qual autor brasileiro escreveu a personagem 'Emília' do Sítio do Pica Pau Amarelo? ; Monteiro Lobato , Machado de Assis , Clarice Lispector , Maurício de Souza, Carlos Drummond.
+Quantos centímetros têm um metro? ; 100 , 10 , 1000 , 10000 , 150.
+Em qual cidade fica a Estátua da Liberdade? ; Nova York , Rio de Janeiro , Londres , Paris , Toquio.
+Qual é o maior animal vivo do mundo? ; baleia azul , dinossauro , hipopótamo , elefante , tubarão-branco.
+Qual o grau de proximidade dos cantores Sandy e Júnior? ; irmãos , primos , amigos , ex-namorados , casados.
+Qual o idioma falado na Angola? ; português , inglês , francês , angolano , latim.
+Quantas cordas possui um cavaquinho (comum)? ; 4 , 3 , 6 , 7 , 9.
+Qual é a capital da Colômbia? ; Bogotá , Caracas , Lima , Medellín , Bueno-Aires.
+Quantos signos tem o zodíaco? ; 12 , 10 , 11 , 14 , 15.
+Vermelho, azul e amarelo formam qual cor? ; marrom , cinza , verde , laranja, roxo.
+Quantas Copas do Mundo a Seleção do Brasil já ganhou? ; 5 , 3 , 4 , 6 , 7.
+Do que é feito a tapioca? ; fécula de mandioca , amido de milho , batata , farinha de arroz , trigo.
+Quantos dias tem um ano bissexto? ; 366 , 350 , 364 , 365 , 364.
+Qual o maior osso do corpo humano? ; fêmur , escápula , braço , tíbia , gluteo.
+O que está escrito na bandeira do Brasil? ; Ordem e Progresso , Brasil acima de todos , Deus acima de todos , Pátria Amada Brasil , Independencia ou Morte.
+Qual desses elementos não está presente em adubos? ; oxigênio , nitrogênio , potássio , fósforo , calcio.
+Durante o governo de qual presidente foi fundada a cidade de Brasília? ; Juscelino Kubitschek , Getúlio Vargas , João Goulart , Fernando Henrique Cardoso , Castelo Branco.
+Quantos planetas tem o Sistema Solar? ; 8 , 6 , 7 , 9 , 10.
+Qual é o elemento químico com o menor número atômico? ; hidrogênio , oxigênio , carbono , hélio , cloro.

@@ -1,5 +1,6 @@
 from funcoes.logica import *
 
+
 # Dados dos Jogadores
 def verificalista(arquivo):
     """
@@ -54,7 +55,7 @@ def cadastrarjogadores(arquivo, nome='<Desconhecido>', pontos=0):
             a.close()
 
 
-def lerarquivo(arquivo, show=False):
+def lerarquivo(arquivo, show=False, ranking=False):
     """
     -> esta função tem por objetivo fazer uma apresentação dos dados do jogadores de forma mais apresentável e
     criar uma lista com as informações que serão modificadas ao decorrer do jogo com a pontuação deste.
@@ -72,13 +73,10 @@ def lerarquivo(arquivo, show=False):
             print(f'{contador} - {dado[0]:.<30}{dado[1]} pontos')
             contador += 1
         lista_jogadores.append(dado)
+    if ranking:
+        cria_ranking(lista_jogadores)
     a.close()
     return lista_jogadores
-
-
-def escolhendo_jogador(lista_jogadores):
-    valorjogador_escolhido = validadorint('Escolha um jogador: ', len(lista_jogadores))
-    return lista_jogadores[valorjogador_escolhido-1], valorjogador_escolhido-1
 
 
 def atualiza_pontos(lista_jogadores, indece, pontos_carregados):

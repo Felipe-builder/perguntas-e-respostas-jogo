@@ -3,6 +3,18 @@ from random import shuffle, sample
 pontuacao = 0
 
 
+def titulo(msg, tam=42):
+    """
+    -> esta função cria o cabeçalho.
+    :param msg: é o conteúdo do cabeçalho a ser exebido para o usuário.
+    :param tam: é o tamanho das linhas a cima e abaixo do corpo do cabeçalho.
+    :return: não possui.
+    """
+    print('-'*tam)
+    print(msg.center(tam))
+    print('-' * tam)
+
+
 def proximomenu(entrada):
     """
     -> função que contem os valores strings que serão buscado pela funcão 'menu()' para mandar as informações
@@ -19,9 +31,25 @@ def proximomenu(entrada):
     elif entrada == 3:
         return ['Voltar']
     elif entrada == 4:
-        return ['Voltar']
+        return ['Dificuldade', 'Voltar']
     elif entrada == 5:
         return ['SIM', 'NÃO']
+
+
+def cria_ranking(lista_jogadores):
+    for c in range(0, len(lista_jogadores)-1):
+        for l in range(c, len(lista_jogadores)):
+            if lista_jogadores[c][1] < lista_jogadores[l][1]:
+                lista_jogadores[c], lista_jogadores[l] = lista_jogadores[l], lista_jogadores[c]
+    cont = 1
+    for jog in lista_jogadores:
+        print(f'{cont}ª - {jog[0]:.<30} {jog[1]}')
+        cont += 1
+
+
+def escolhendo_jogador(lista_jogadores):
+    valorjogador_escolhido = validadorint('Escolha um jogador: ', len(lista_jogadores))
+    return lista_jogadores[valorjogador_escolhido-1], valorjogador_escolhido-1
 
 
 def validadornome(msg, alternativa=False):
@@ -66,43 +94,43 @@ def validadorint(msg, cont):
                 return valor
 
 
-def escolhendoperguntas(lista):
+def escolhendoperguntas(lista_perguntas):
     """
     -> funcão que inicia o questionário.
-    :param lista:
-    :return:
+    :param lista_perguntas: esta é a lista de perguntas
+    :return: vai retornar o valor de pontuação do jogador
     """
     global pontuacao
     pontuacao = 0
-    mostraperguntas(lista)
+    mostraperguntas(lista_perguntas)
     return pontuacao
 
 
-def mostraperguntas(lista):
+def mostraperguntas(lista_perguntas):
     """
     -> função que mostra o questionário.
-    :param lista:
+    :param lista_perguntas:
     :return:
     """
     cont = 1
     op = ['a)', 'b)', 'c)', 'd)', 'e)']
     sorteados = sistemaembaralhamento()
     for p in range(0, 8):
-        repeticaomostraperguntas(lista, cont, op, sorteados)
+        repeticaomostraperguntas(lista_perguntas, cont, op, sorteados)
         cont += 1
 
 
-def repeticaomostraperguntas(lista, cont, op, sorteados):
+def repeticaomostraperguntas(lista_perguntas, cont, op, sorteados):
     """
-    -> função que
-    :param lista:
-    :param cont:
-    :param op:
+    -> função que resume a função 'mostraperguntas()'
+    :param lista_perguntas: é a lista que contêm as perguntas e suas respectivas alternativas
+    :param cont: vai informar a ordem da pergunta
+    :param op: vai informar a alternativa
     :param sorteados:
     :return:
     """
-    print(f'{cont} - {lista[0][sorteados[cont]]}')
-    alternativa = lista[1][sorteados[cont]][:]
+    print(f'{cont} - {lista_perguntas[0][sorteados[cont]]}')
+    alternativa = lista_perguntas[1][sorteados[cont]][:]
     alternativa = alternativa.split(',')
     certo = alternativa[0][:]
     shuffle(alternativa)
@@ -119,9 +147,9 @@ def verificandoresposta(opc_escolhida, alternativa, cert):
     valor_opc = al.index(opc_escolhida)
     if alternativa[valor_opc] == cert:
         pontuacao += ponts
-        print('certo')
+        print('Certo')
     else:
-        print('errado')
+        print('Errado')
 
 
 def sistemaembaralhamento():
