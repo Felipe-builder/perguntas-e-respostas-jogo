@@ -8,6 +8,7 @@ def inicio():
     igual a cinco
     :return:
     """
+    opcao = 0
     while True:
         escolha = menu('MENU PRINCIPAL')
         if escolha == 1:
@@ -25,7 +26,7 @@ def inicio():
             jogador_escolhido, indece = escolhendo_jogador(lista_jogadores)
             jogador_escolhido[1] = int(jogador_escolhido[1])
             pontos_carregados = jogador_escolhido[1]
-            comecarpartida(pontos_carregados, lista_jogadores, indece)
+            comecarpartida(pontos_carregados, lista_jogadores, indece, opcao)
         elif escolha == 2:
             menu('RECORDES', escolha, 1)
         elif escolha == 3:
@@ -35,8 +36,8 @@ def inicio():
             if r == 1:
                 lista_op = ['Fácil', 'Moderado', 'Difícil']
                 opcao = menu('DIFICULDADE', l_op=lista_op)
-                arq = inicialista(1, opcao)
-                print(arq)
+                arq_perguntas = inicialista(1, opcao)
+                print(arq_perguntas)
         elif escolha == 5:
             r = menu('FINALIZANDO', escolha)
             if r == 1:
@@ -115,10 +116,10 @@ def inicialista(procedimento=0, perguntas=0):
     return arq
 
 
-def comecarpartida(pontos_carregados, lista_jogadores, indice):
+def comecarpartida(pontos_carregados, lista_jogadores, indice, opcao):
     resp = menu('Quer começar? ', 5)
     if resp == 1:
-        arq = inicialista(1)
+        arq = inicialista(1, opcao)
         lista_perguntas = carregarperguntas(arq)
         pontos = escolhendoperguntas(lista_perguntas)
         pontos_carregados += pontos
