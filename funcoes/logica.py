@@ -38,9 +38,9 @@ def proximomenu(entrada):
 
 def cria_ranking(lista_jogadores):
     for c in range(0, len(lista_jogadores)-1):
-        for l in range(c, len(lista_jogadores)):
-            if lista_jogadores[c][1] < lista_jogadores[l][1]:
-                lista_jogadores[c], lista_jogadores[l] = lista_jogadores[l], lista_jogadores[c]
+        for li in range(c, len(lista_jogadores)):
+            if lista_jogadores[c][1] < lista_jogadores[li][1]:
+                lista_jogadores[c], lista_jogadores[li] = lista_jogadores[li], lista_jogadores[c]
     cont = 1
     for jog in lista_jogadores:
         print(f'{cont}ª - {jog[0]:.<30} {jog[1]}')
@@ -94,21 +94,23 @@ def validadorint(msg, cont):
                 return valor
 
 
-def escolhendoperguntas(lista_perguntas):
+def escolhendoperguntas(lista_perguntas, arq):
     """
     -> funcão que inicia o questionário.
+    :param arq:
     :param lista_perguntas: esta é a lista de perguntas
     :return: vai retornar o valor de pontuação do jogador
     """
     global pontuacao
     pontuacao = 0
-    mostraperguntas(lista_perguntas)
+    mostraperguntas(lista_perguntas, arq)
     return pontuacao
 
 
-def mostraperguntas(lista_perguntas):
+def mostraperguntas(lista_perguntas, arq):
     """
     -> função que mostra o questionário.
+    :param arq:
     :param lista_perguntas:
     :return:
     """
@@ -116,13 +118,14 @@ def mostraperguntas(lista_perguntas):
     op = ['a)', 'b)', 'c)', 'd)', 'e)']
     sorteados = sistemaembaralhamento()
     for p in range(0, 8):
-        repeticaomostraperguntas(lista_perguntas, cont, op, sorteados)
+        repeticaomostraperguntas(lista_perguntas, cont, op, sorteados, arq)
         cont += 1
 
 
-def repeticaomostraperguntas(lista_perguntas, cont, op, sorteados):
+def repeticaomostraperguntas(lista_perguntas, cont, op, sorteados, arq):
     """
     -> função que resume a função 'mostraperguntas()'
+    :param arq:
     :param lista_perguntas: é a lista que contêm as perguntas e suas respectivas alternativas
     :param cont: vai informar a ordem da pergunta
     :param op: vai informar a alternativa
@@ -137,19 +140,29 @@ def repeticaomostraperguntas(lista_perguntas, cont, op, sorteados):
     for x, a in enumerate(alternativa):
         print(f'\t{op[x]} - {a[2:-2]}')
     opc_escolhida = validadornome('Qual é a certa?', alternativa=True)
-    verificandoresposta(opc_escolhida, alternativa, certo)
+    verificandoresposta(opc_escolhida, alternativa, certo, arq)
 
 
-def verificandoresposta(opc_escolhida, alternativa, cert):
+def verificandoresposta(opc_escolhida, alternativa, cert, arq):
     al = ['a', 'b', 'c', 'd', 'e']
-    ponts = 1
+    ponts = condicao_pontuacao(arq)
     global pontuacao
     valor_opc = al.index(opc_escolhida)
     if alternativa[valor_opc] == cert:
         pontuacao += ponts
         print('Certo')
+        print(f'Você ganhou mais {ponts}')
     else:
         print('Errado')
+
+
+def condicao_pontuacao(arq):
+    if arq == 'perguntas-faceis.txt':
+        return 1
+    elif arq == 'perguntas-medias.txt':
+        return 2
+    elif arq == 'perguntas-dificeis.txt':
+        return 3
 
 
 def sistemaembaralhamento():

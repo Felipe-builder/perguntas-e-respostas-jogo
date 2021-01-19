@@ -15,18 +15,17 @@ def inicio():
             r = menu('JOGAR', escolha)
             arq = inicialista()
             if r == 1:
-                criajogadores()
+                criajogadores()  # Criar jogadores
             elif r == 2:
-                lerarquivo(arq, show=True)
+                lista_jogadores = lerarquivo(arq, show=True)  # Mostra qual jogador deve escolher
+                jogador_escolhido, indece = escolhendo_jogador(lista_jogadores)
+                jogador_escolhido[1] = int(jogador_escolhido[1])
+                pontos_carregados = jogador_escolhido[1]
+                comecarpartida(pontos_carregados, lista_jogadores, indece, opcao)
             elif r == 3:
                 criajogadores(fast=True)
             elif r == 4:
                 print('voltar!!')
-            lista_jogadores = lerarquivo(arq)
-            jogador_escolhido, indece = escolhendo_jogador(lista_jogadores)
-            jogador_escolhido[1] = int(jogador_escolhido[1])
-            pontos_carregados = jogador_escolhido[1]
-            comecarpartida(pontos_carregados, lista_jogadores, indece, opcao)
         elif escolha == 2:
             menu('RECORDES', escolha, v=True)
         elif escolha == 3:
@@ -47,16 +46,16 @@ def inicio():
 def menu(msg_titulo, op=0, v=False, l_op=''):
     """
     -> função com menu ejustável na devida necessidade do programa
-    :param v:
-    :param l_op:
+    :param v: se verdadeiro ele mostra o ranking.
+    :param l_op: é a lista de opção das dificuldades
     :param msg_titulo: é o conteúdo do cabeçalho que vai ser enviado para a função :titulo().
     :param op: é o valor que instruir a devida chamada :proximomenu() que corpo o menu deve tomar.
     :return: retorna um valor inteiro.
     """
     opcoes = proximomenu(op)  # corpo de opções do menu a qual está contida numa lista.
     titulo(msg_titulo)  # cabeçalho do menu.
-    if v == 1:
-        lerarquivo('lista-jogadores.txt', ranking=True)
+    if v:
+        lerarquivo('lista-jogadores.txt', ranking=True)  # função que vai ler o arquivo com lista de jogadores
     if l_op != '':
         escolhido = opcoesdomenu(l_op)
     else:
@@ -67,9 +66,9 @@ def menu(msg_titulo, op=0, v=False, l_op=''):
 def opcoesdomenu(lista_op):
     """
     -> função que monta o corpo do menu ao usúario com suas opções e retorna a escolha feita para segmento do
-    programa
-    :param lista_op:
-    :return:
+    programa.
+    :param lista_op: é a lista de opções que vai ser mostrada ao usuário.
+    :return: retorna um valor inteiro para dá segmento ao programada segundo sua condição.
     """
     cont = 1
     for item in lista_op:
@@ -121,9 +120,8 @@ def comecarpartida(pontos_carregados, lista_jogadores, indice, opcao):
     if resp == 1:
         arq = inicialista(1, opcao)
         lista_perguntas = carregarperguntas(arq)
-        pontos = escolhendoperguntas(lista_perguntas)
+        pontos = escolhendoperguntas(lista_perguntas, arq)
         pontos_carregados += pontos
         atualiza_pontos(lista_jogadores, indice, pontos_carregados)
-        print('Parei aqui')
     else:
         print('Voltando...')
