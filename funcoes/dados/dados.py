@@ -91,7 +91,7 @@ def atualiza_pontos(lista_jogadores, indece, pontos_carregados):
 # dados das perguntas!
 def carregarperguntas(arquivo):
     perguntas = [[], []]
-    a = open(arquivo, 'r')
+    a = open(arquivo, 'r', encoding='utf-8')
     for linha in a:
         dado = linha.split(';')
         dado[1] = dado[1].replace('\n', '')
