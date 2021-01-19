@@ -28,7 +28,7 @@ def inicio():
             pontos_carregados = jogador_escolhido[1]
             comecarpartida(pontos_carregados, lista_jogadores, indece, opcao)
         elif escolha == 2:
-            menu('RECORDES', escolha, 1)
+            menu('RECORDES', escolha, v=True)
         elif escolha == 3:
             menu('INSTRUÇÕES', escolha)
         elif escolha == 4:
@@ -44,7 +44,7 @@ def inicio():
                 break
 
 
-def menu(msg_titulo, op=0, v=0, l_op=''):
+def menu(msg_titulo, op=0, v=False, l_op=''):
     """
     -> função com menu ejustável na devida necessidade do programa
     :param v:
