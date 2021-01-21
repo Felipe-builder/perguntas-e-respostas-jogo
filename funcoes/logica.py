@@ -37,6 +37,13 @@ def proximomenu(entrada):
 
 
 def cria_ranking(lista_jogadores):
+    """
+    -> função que cria um ranking, pegando a lista temporaria com as informações do jogador, e altera a ordem
+    da lista segundo a pontuação de cada jogador, os maiores pontuadores ficaram no topo da lista que será
+    mostrada atráves estrutura de repetição.
+    :param lista_jogadores: é a lista com todas as informações do jogador
+    :return:
+    """
     for c in range(0, len(lista_jogadores)-1):
         for li in range(c, len(lista_jogadores)):
             if lista_jogadores[c][1] < lista_jogadores[li][1]:
@@ -48,6 +55,11 @@ def cria_ranking(lista_jogadores):
 
 
 def escolhendo_jogador(lista_jogadores):
+    """
+    -> função que seleciona um jogador buscando sua pontuação registrada e seu índice.
+    :param lista_jogadores: é lista que contém as informações dos jogadores.
+    :return: vai retornar os valores de pontuação do jogador selecionado e o valor do seu índice.
+    """
     valorjogador_escolhido = validadorint('Escolha um jogador: ', len(lista_jogadores))
     return lista_jogadores[valorjogador_escolhido-1], valorjogador_escolhido-1
 
@@ -80,7 +92,7 @@ def validadorint(msg, cont):
     -> validador de números inteiros para informar a opção escolhida pelo jogador.
     :param msg: é a natureza da pergunta que será feita.
     :param cont: é o limite de valor que pode ser colocado .
-    :return:
+    :return: vai retornar um valor inteiro
     """
     while True:
         try:
@@ -144,6 +156,14 @@ def repeticaomostraperguntas(lista_perguntas, cont, op, sorteados, arq):
 
 
 def verificandoresposta(opc_escolhida, alternativa, cert, arq):
+    """
+    -> função que verifica a resposta e atribui pontos caso verdadeira.
+    :param opc_escolhida:
+    :param alternativa:
+    :param cert:
+    :param arq:
+    :return:
+    """
     al = ['a', 'b', 'c', 'd', 'e']
     ponts = condicao_pontuacao(arq)
     global pontuacao

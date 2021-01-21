@@ -19,8 +19,7 @@ def inicio():
             elif r == 2:
                 lista_jogadores = lerarquivo(arq, show=True)  # Mostra qual jogador deve escolher
                 jogador_escolhido, indece = escolhendo_jogador(lista_jogadores)
-                jogador_escolhido[1] = int(jogador_escolhido[1])
-                pontos_carregados = jogador_escolhido[1]
+                pontos_carregados = int(jogador_escolhido[1])  # converte os pontos de "str" em "int"
                 comecarpartida(pontos_carregados, lista_jogadores, indece, opcao)
             elif r == 3:
                 criajogadores(fast=True)

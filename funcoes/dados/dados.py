@@ -59,6 +59,7 @@ def lerarquivo(arquivo, show=False, ranking=False):
     """
     -> esta função tem por objetivo fazer uma apresentação dos dados do jogadores de forma mais apresentável e
     criar uma lista com as informações que serão modificadas ao decorrer do jogo com a pontuação deste.
+    :param ranking: vem como padrão falso, caso verdadeiro mostra ao usúario o ranking.
     :param show: define se a função vai mostrar os jogadores ou não.
     :param arquivo: é o nome do arquivo
     :return: retorna uma lista com os dados de cada jogador inscrito no programa.
@@ -80,6 +81,15 @@ def lerarquivo(arquivo, show=False, ranking=False):
 
 
 def atualiza_pontos(lista_jogadores, indece, pontos_carregados):
+    """
+    -> Funcão que ao ser chamada atualiza os pontos dos jogadores.
+    :param lista_jogadores: é a lista que contem todos os dados dos jogadores cadastados, seus respectivos
+    nomes e pontos.
+    :param indece: é o índece do jogador que está jogando no momento e que portanto deve ter seus pontos
+    atualizados.
+    :param pontos_carregados: é a pontuação registrada do jogador .
+    :return:
+    """
     lista_jogadores[indece][1] = pontos_carregados
     arq = 'lista-jogadores.txt'
     a = open(arq, 'wt')
