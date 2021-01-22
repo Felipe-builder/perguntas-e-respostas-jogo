@@ -12,19 +12,7 @@ def inicio():
     while True:
         escolha = menu('MENU PRINCIPAL')
         if escolha == 1:
-            r = menu('JOGAR', escolha)
-            arq = inicialista()
-            if r == 1:
-                criajogadores()  # Criar jogadores
-            elif r == 2:
-                lista_jogadores = lerarquivo(arq, show=True)  # Mostra qual jogador deve escolher
-                jogador_escolhido, indece = escolhendo_jogador(lista_jogadores)
-                pontos_carregados = int(jogador_escolhido[1])  # converte os pontos de "str" em "int"
-                comecarpartida(pontos_carregados, lista_jogadores, indece, opcao)
-            elif r == 3:
-                criajogadores(fast=True)
-            elif r == 4:
-                print('voltar!!')
+            condicao(opcao, escolha)
         elif escolha == 2:
             menu('RECORDES', escolha, v=True)
         elif escolha == 3:
@@ -40,6 +28,22 @@ def inicio():
             r = menu('FINALIZANDO', escolha)
             if r == 1:
                 break
+
+
+def condicao(opcao, escolha):
+    r = menu('JOGAR', escolha)
+    arq = inicialista()
+    if r == 1:
+        criajogadores()  # Criar jogadores
+    elif r == 2:
+        lista_jogadores = lerarquivo(arq, show=True)  # Mostra qual jogador deve escolher
+        jogador_escolhido, indece = escolhendo_jogador(lista_jogadores)
+        pontos_carregados = int(jogador_escolhido[1])  # converte os pontos de "str" em "int"
+        comecarpartida(pontos_carregados, lista_jogadores, indece, opcao)
+    elif r == 3:
+        criajogadores(fast=True)
+    elif r == 4:
+        print('voltar!!')
 
 
 def menu(msg_titulo, op=0, v=False, l_op=''):
@@ -95,9 +99,9 @@ def criajogadores(fast=False):
 def inicialista(procedimento=0, perguntas=0):
     """
     -> função necessária para dá inicio ao arquivo txt que irá guardar informações dos jogadores e das perguntas
-    :param perguntas:
+    :param perguntas: é a opção escolhida que definirá a busca de qual arquivo de perguntas.
     :param procedimento: se o procedimento for 0 carrega o .txt dos jogadores, senão carrega das perguntas.
-    :return:
+    :return: vai retornar o nome do arquivo buscado, segundo a opção escolhida
     """
     if procedimento == 0:
         arq = 'lista-jogadores.txt'
@@ -115,12 +119,20 @@ def inicialista(procedimento=0, perguntas=0):
 
 
 def comecarpartida(pontos_carregados, lista_jogadores, indice, opcao):
+    """
+    -> tem a função de começar a partida.
+    :param pontos_carregados: é a pontuação originária do jogador que sofrerá mudança ao decorrer da partida.
+    :param lista_jogadores: contém as informações do jogador, nome e pontuação
+    :param indice: é o indice do jogador escolhido
+    :param opcao:
+    :return:
+    """
     resp = menu('Quer começar? ', 5)
     if resp == 1:
         arq = inicialista(1, opcao)
         lista_perguntas = carregarperguntas(arq)
         pontos = escolhendoperguntas(lista_perguntas, arq)
-        pontos_carregados += pontos
+        pontos_carregados += pontos  # aqui a pontuação sofre mudança porém ela ainda deve ser registrada na lista
         atualiza_pontos(lista_jogadores, indice, pontos_carregados)
     else:
         print('Voltando...')

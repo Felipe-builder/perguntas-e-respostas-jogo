@@ -100,6 +100,13 @@ def atualiza_pontos(lista_jogadores, indece, pontos_carregados):
 
 # dados das perguntas!
 def carregarperguntas(arquivo):
+    """
+    -> função que vai abrir o arquivo que contem as perguntas, segundo o nome fornecido(perguntas-faceis ou
+    perguntas-medias ou perguntas-dificeis). separar as alternativas do conteúdo da pergunta colocando-as
+    em uma lista temporária.
+    :param arquivo: é o nome do arquivo (perguntas-faceis, perguntas-medias, perguntas-dificeis).
+    :return: vai retornar a lista montada com base no arquivo txt.
+    """
     perguntas = [[], []]
     a = open(arquivo, 'r', encoding='utf-8')
     for linha in a:

@@ -45,9 +45,9 @@ def cria_ranking(lista_jogadores):
     :return:
     """
     for c in range(0, len(lista_jogadores)-1):
-        for li in range(c, len(lista_jogadores)):
-            if lista_jogadores[c][1] < lista_jogadores[li][1]:
-                lista_jogadores[c], lista_jogadores[li] = lista_jogadores[li], lista_jogadores[c]
+        for i in range(c, len(lista_jogadores)):
+            if int(lista_jogadores[c][1]) < int(lista_jogadores[i][1]):
+                lista_jogadores[c], lista_jogadores[i] = lista_jogadores[i], lista_jogadores[c]
     cont = 1
     for jog in lista_jogadores:
         print(f'{cont}ª - {jog[0]:.<30} {jog[1]}')
@@ -109,8 +109,9 @@ def validadorint(msg, cont):
 def escolhendoperguntas(lista_perguntas, arq):
     """
     -> funcão que inicia o questionário.
-    :param arq:
-    :param lista_perguntas: esta é a lista de perguntas
+    :param arq: é o nome do arquivo de perguntas que será utilizado como padrão para definir qual será o acréscimo
+    da pontuação caso acerte a questão fácil ou dificil.
+    :param lista_perguntas: esta é a lista de perguntas.
     :return: vai retornar o valor de pontuação do jogador
     """
     global pontuacao
@@ -122,13 +123,13 @@ def escolhendoperguntas(lista_perguntas, arq):
 def mostraperguntas(lista_perguntas, arq):
     """
     -> função que mostra o questionário.
-    :param arq:
-    :param lista_perguntas:
+    :param arq: nome do arquivo
+    :param lista_perguntas: é a lista de perguntas
     :return:
     """
     cont = 1
     op = ['a)', 'b)', 'c)', 'd)', 'e)']
-    sorteados = sistemaembaralhamento()
+    sorteados = sistemaembaralhamento()  # função de embaralhamento do indice das perguntas.
     for p in range(0, 8):
         repeticaomostraperguntas(lista_perguntas, cont, op, sorteados, arq)
         cont += 1
@@ -141,14 +142,14 @@ def repeticaomostraperguntas(lista_perguntas, cont, op, sorteados, arq):
     :param lista_perguntas: é a lista que contêm as perguntas e suas respectivas alternativas
     :param cont: vai informar a ordem da pergunta
     :param op: vai informar a alternativa
-    :param sorteados:
+    :param sorteados: é a lista que contem os índices das questões de forma sorteadas
     :return:
     """
-    print(f'{cont} - {lista_perguntas[0][sorteados[cont]]}')
-    alternativa = lista_perguntas[1][sorteados[cont]][:]
+    print(f'{cont} - {lista_perguntas[0][sorteados[cont-1]]}')
+    alternativa = lista_perguntas[1][sorteados[cont-1]][:]
     alternativa = alternativa.split(',')
-    certo = alternativa[0][:]
-    shuffle(alternativa)
+    certo = alternativa[0][:]  # a alternativa correta sempre será no indice 0 da do item da lista de perguntas
+    shuffle(alternativa)  # embaralha os conteúdos das alternativas da variavel criada somente para isso.
     for x, a in enumerate(alternativa):
         print(f'\t{op[x]} - {a[2:-2]}')
     opc_escolhida = validadornome('Qual é a certa?', alternativa=True)
@@ -158,10 +159,11 @@ def repeticaomostraperguntas(lista_perguntas, cont, op, sorteados, arq):
 def verificandoresposta(opc_escolhida, alternativa, cert, arq):
     """
     -> função que verifica a resposta e atribui pontos caso verdadeira.
-    :param opc_escolhida:
-    :param alternativa:
-    :param cert:
-    :param arq:
+    :param opc_escolhida: é a alternativa escolhida pelo o usuário como resposta
+    :param alternativa: é o valor da alternativa que será comparada com o valor da alternativa correta
+    :param cert: é o valor da alternativa correta
+    :param arq: é o nome do arquivo txt de perguntas que definirá quantos potnos o jogador irá ganhar.
+    caso facil ganhara 1 ponto, caso médio ganha 2, caso difícil ganha 3.
     :return:
     """
     al = ['a', 'b', 'c', 'd', 'e']
@@ -171,12 +173,16 @@ def verificandoresposta(opc_escolhida, alternativa, cert, arq):
     if alternativa[valor_opc] == cert:
         pontuacao += ponts
         print('Certo')
-        print(f'Você ganhou mais {ponts}')
     else:
         print('Errado')
 
 
 def condicao_pontuacao(arq):
+    """
+    -> função que define qual será o valor da pontuação do jogador segundo a dificuldade das questões.
+    :param arq: é o nome do arquivo txt.
+    :return: retorna o valor da pontuação.
+    """
     if arq == 'perguntas-faceis.txt':
         return 1
     elif arq == 'perguntas-medias.txt':
@@ -186,8 +192,12 @@ def condicao_pontuacao(arq):
 
 
 def sistemaembaralhamento():
-    numbers = []
+    """
+    -> utiliza uma função sample para definir as questões que irão ser apresentadas ao usúario sem repeti-las.
+    :return: vai retornar os valores sorteados que estão em uma lista.
+    """
+    numbers = []  # inicia a lista vázia que posteriormente será adicionada os valores
     for c in range(0, 25):
         numbers.append(c)
-    esc = sample(numbers, 9)
+    esc = sample(numbers, 8)  # escolhe aleatoriamente 8 valores entre os 25 valores adicionados e coloca-os em lista.
     return esc
